@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/classify/classify",
+    "pages/cart/cart",
+    "pages/dish/dish",
+    "pages/handle/handle",
+    "pages/bonus/bonus",
+    "pages/invite/invite",
+    "pages/feedback/feedback",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/pay/pay",
+    "pages/my/my",
+    "pages/address/address"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1FA1FC",
+    "navigationBarTextStyle": "light",
+    "navigationBarTitleText": "五谷食补",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#aaaaaa",
+    "selectedColor": "#1FA1FC",
+    "borderStyle": "white",
+    "backgroundColor": "#f6f6f6",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/img/first_1.png",
+        "selectedIconPath": "/img/first_2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "iconPath": "/img/classify_1.png",
+        "selectedIconPath": "/img/classify_2.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "/img/cart_1.png",
+        "selectedIconPath": "/img/cart_2.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "/img/myinfo_1.png",
+        "selectedIconPath": "/img/myinfo_2.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

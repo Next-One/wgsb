@@ -1,0 +1,112 @@
+@import "/utils/wxss/base64.wxss";
+@import "/utils/wxss/address_edit.wxss";
+.address, page {
+  background-color: #f4f8fb;
+  width: 100%;
+  height: 100%;
+}
+
+.address-empty {
+  height: 600rpx;
+  width: 100%;
+  background-color: #fff;
+}
+
+.bg-empty-address {
+  width: 200rpx;
+  height: 120rpx;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.address-btn-group {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100rpx;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10rpx 20rpx;
+  color: #fff;
+}
+
+.address-btn {
+  width: 350rpx;
+  height: 80rpx;
+  background-color: #ff2742;
+  border-radius: 10rpx;
+}
+
+.wx-color {
+  background-color: #09bb07;
+}
+
+.address-logo {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 16rpx 0 80rpx;
+  background-size: cover;
+}
+
+.address-item {
+  background-color: #fff;
+  margin-bottom: 10rpx;
+  box-sizing: border-box;
+  color: #000;
+}
+
+.address-info {
+  padding: 30rpx;
+}
+
+.address-info {
+  position: relative;
+  border-bottom: 4rpx solid #f5f5f5;
+}
+
+.address-edit {
+  height: 80rpx;
+  color: #9c9c9c;
+  padding: 0 30rpx;
+}
+
+.address-detail {
+  max-width: 600rpx;
+}
+
+.user-name {
+  font-size: 32rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-weight: bold;
+}
+
+.phone-num {
+  font-size: 26rpx;
+  font-weight: normal;
+}
+
+.address-selected {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 60rpx;
+  right: 40rpx;
+  background-size: cover;
+}
+
+.mr-16 {
+  margin-right: 16rpx;
+}
+
+.address-default {
+  color: #d81e06;
+}
+
+.edit-btn{
+  width: 110rpx;
+  text-indent: 40rpx;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 36rpx 36rpx;
+}

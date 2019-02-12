@@ -1,0 +1,94 @@
+.cart-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.cart-item {
+  padding: 30rpx;
+  height: 166rpx;
+  color: #000;
+  position: relative;
+  background: #fff;
+  margin-bottom: 4rpx;
+}
+
+.select-btn, .all-select-btn {
+  width: 40rpx;
+  height: 40rpx;
+  background-size: cover;
+}
+
+.select-btn {
+  margin-right: 30rpx;
+}
+
+.cart-img-wrap {
+  height: 100%;
+  width: 160rpx;
+  margin: 0 30rpx;
+}
+
+.cart-img {
+  height: 100%;
+  width: 160rpx;
+}
+
+.cart-content {
+  height: 100%;
+  position: relative;
+}
+
+.cart-name {
+  margin-bottom: 20rpx;
+}
+
+.start-price {
+  color: rgb(83, 178, 245);
+  font-size: 24rpx;
+}
+
+.end-price {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #1fa1fc;
+  font-size: 32rpx;
+}
+
+.cart-quantity {
+  position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+  border: 4rpx #f5f5f5 solid;
+  border-radius: 8rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.minus {
+  width: 60rpx;
+  height: 60rpx;
+  border-right: 4rpx #f5f5f5 solid;
+  position: relative;
+}
+
+.minus-top {
+  position: absolute;
+  top: 30rpx;
+  left: 20rpx;
+  width: 20rpx;
+  height: 4rpx;
+  background-color: #000;
+}
+
+.plus {
+  width: 60rpx;
+  font-size: 40rpx;
+  border-left: 4rpx #f5f5f5 solid;
+}
+
+.quantity {
+  font-size: 30rpx;
+  width: 80rpx;
+}
+

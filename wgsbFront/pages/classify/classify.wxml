@@ -1,0 +1,34 @@
+<!--pages/classify/classify.wxml-->
+<wxs src="./../lib/show.wxs" module="show"/>
+<view class="nav-wrap ftl c999" >
+    <!--<view class='slide-bg' style='left:{{currentTab*150}}rpx'>-->
+        <!--<view class='shape'></view>-->
+    <!--</view>-->
+    <view class="nav-item {{currentTab === index ? 'ctheme' : ''}}" wx:for="{{tabs}}"
+          wx:key="index" data-current="{{index}}" bindtap="switchTab">{{item}}
+    </view>
+    <view class="slide-underline" style='transform: translateX({{currentTab*150}}rpx)'></view>
+</view>
+<!-- 页面内容 -->
+<swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">
+    <swiper-item wx:for="{{tabs}}" wx:key="index" class="tab-content">
+        <view class='good-list'>
+            <view class='goods-item mb-20' wx:for="{{goods}}" wx:key="id" wx:for-item="dish">
+                <navigator url="/pages/dish/dish?id={{item.id}}" hover-class="hover">
+                    <view class='image-wrap'>
+                        <image src='{{dish.imgUrl}}' class='image-item' mode='aspectFill'></image>
+                    </view>
+                </navigator>
+                <view class='dish-content'>
+                    <view class='bg-cart-add'></view>
+                    <view class='dish-name'>{{dish.name}}</view>
+                    <view class='dish-brief'>{{dish.brief}}</view>
+                    <view class='dish-price'>¥{{show.show(dish,'price')}}
+                        <text class='source-price'>{{show.show(dish,'source-price')}}</text>
+                    </view>
+                    <view class='dish-dicount'></view>
+                </view>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>

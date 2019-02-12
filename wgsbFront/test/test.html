@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <!--<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>-->
+    <style>
+        #status {
+            height: 24px;
+            padding: 20px;
+            background-color: #1fa0fc;
+            color: #ffffff;
+            font-size: 14px;
+            margin: 0;
+            border-left: 2px slategray solid;
+        }
+
+        .progress {
+            height: 20px;
+            width: 0;
+            background-color: #1fa0fc;
+            line-height: 20px;
+            font-size: 12px;
+            color: #ffffff;
+        }
+
+        .progress-wrap {
+            margin-top: 100px;
+            height: 20px;
+            background-color: #ff9979;
+            width: 100%;
+        }
+
+        .content {
+            background-color: #f4f8fb;
+            min-height: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<!--<div id="app">
+    <div class="btn">发送post请求</div>
+</div>-->
+<form action="http://localhost:8887/wgsb/submit" name="login" method="post">
+    <div>
+        <input type="text" name="userName" value="next-one" title="用户名" placeholder="请输入用户名" autofocus>
+    </div>
+    <div>
+        <input type="password" name="password" title="密码" value="wmx123" placeholder="请输入密码">
+    </div>
+    <div>
+        <select name="love" id="love">
+            <option value="code">写代码</option>
+            <option value="ball">打球</option>
+        </select>
+    </div>
+    <div>
+        <input type="file" name="file" id="file">
+    </div>
+    <div>
+        <input type="file" name="file" id="file2">
+    </div>
+    <div>
+        <input type="submit" value="提交">
+    </div>
+</form>
+<!--<p id="status"></p>-->
+<div class="progress-wrap">
+    <div class="progress">0%</div>
+</div>
+<div class="content"></div>
+<script>
+    let fileBtn = document.getElementById("file");
+    let fileBtn2 = document.getElementById("file2");
+    let progress = document.querySelector(".progress");
+    let content = document.querySelector('.content');
+    fileBtn.addEventListener('change', (e) => {
+        // console.log(e);
+        let reader = new FileReader();
+        let files = e.target.files;
+        let type = files[0].type;
+        progress.innerHTML = "0%";
+        progress.style.width = "0%";
+        if (/image/.test(type)) {
+            type = 'image';
+            reader.readAsDataURL(files[0]);
+        } else {
+            type = 'text';
+            reader.readAsText(files[0]);
+        }
+        reader.onprogress = function (e) {
+            if (e.lengthComputable) {
+                let progressNum = Math.floor(e.loaded / e.total * 100) + "%";
+                progress.innerHTML = progressNum;
+                progress.style.width = progressNum;
+            }
+        };
+        reader.onerror = function (error) {
+            content.innerHTML = `file reader show error ${error}`
+        };
+        reader.onload = function (e) {
+            let html = "";
+            if (type === 'image') {
+                html = `<img src="${reader.result}" alt="${files[0].name}">`;
+            } else {
+                html = reader.result;
+            }
+            // console.log(reader.result);
+            content.innerHTML = html;
+        }
+
+    });
+
+
+
+    /*fileBtn2.addEventListener('change',(e) =>{
+        let files = e.target.files;
+        let blob = new Blob();
+
+    })*/
+    /*var obj = {
+        "name": 'CntChen',
+        "info": 'Front-End',
+    };
+    $('.btn').click(function() {
+        $.ajax({
+            url: 'http://localhost:8887/wgsb/submit',
+            type: 'POST',
+            dataType: 'json',
+            data: obj,
+            success: function(d) {
+
+            }
+        })
+    });*/
+    //方法一
+    /*var arr = [1,23,1,1,1,3,23,5,6,7,9,9,8,5];
+    function removeDuplicatedItem(arr) {
+        for(var i = 0; i < arr.length-1; i++){
+            for(var j = i+1; j < arr.length; j++){
+                if(arr[i]===arr[j]){
+                    arr.splice(j,1);//console.log(arr[j]);
+                    j--;
+                }
+            }
+        }
+        return arr;
+    }
+
+    arr2 = removeDuplicatedItem(arr);
+    console.log(arr);
+    console.log(arr2);*/
+</script>
+</body>
+</html>

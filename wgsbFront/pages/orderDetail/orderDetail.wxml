@@ -1,0 +1,97 @@
+<wxs src="./../lib/show.wxs" module="show" />
+<view class='content'>
+  <view class='order-info'>
+    <view class='shop-info frcsb'>
+      <view class='shop-view frc'>
+        <view class='shop-logo bg-shop-logo'></view>
+        <view class='shop-name'>五谷食疗(合肥安医大一附院店)</view>
+      </view>
+      <view>自行配送</view>
+    </view>
+    <view wx:for="{{order.orderItem}}" wx:key="id" class='frc order-item'>
+      <view class='goods-image-wrap'>
+        <image class='goods-image' src='{{item.imgUrl}}' mode='aspectFill'></image>
+      </view>
+      <view class='goods-info'>
+        <view class='goods-name'>{{item.name}}
+          <text wx:if="{{show.show(item,'discount')}}" class='goods-discount'>{{item.discount*10}}折</text>
+        </view>
+        <view class='goods-price'>×{{item.quantity}}</view>
+        <view class='goods-total'>¥{{item.price * item.discount * item.quantity}}</view>
+      </view>
+    </view>
+    <view class='other-cost'>
+      <view class='frcsb cost-item'>
+        <view>包装费</view>
+        <view>¥{{order.packageFee}}</view>
+      </view>
+      <view class='frcsb cost-item'>
+        <view>配送费</view>
+        <view>¥{{order.sendFee}}</view>
+      </view>
+      <view class='ball-left'></view>
+      <view class='ball-right'></view>
+    </view>
+    <view class='other-favourable'>
+      <view class='frcsb cost-item-15' hidden='{{!order.minusSendFee}}'>
+        <view class='minus-item'>
+          <view class="minus-txt">减</view>减配送费</view>
+        <view class='minus-price'>- ¥ {{order.minusSendFee}}</view>
+      </view>
+      <view class='frcsb cost-item-15' hidden='{{!order.fullMinus}}'>
+        <view class='minus-item'>
+          <view class="minus-txt bgc-63">减</view>满减优惠</view>
+        <view class='minus-price'>- ¥ {{order.fullMinus}}</view>
+      </view>
+      <view class='frcsb cost-item-15' hidden='{{!order.redPackage}}'>
+        <view class='minus-item'>
+          <view class="minus-txt bgc-43">返</view>获得红包(下次可用)</view>
+        <view class='minus-price'>+ ¥ {{order.redPackage}}</view>
+      </view>
+      <view class='frcsb cost-red-packet' hidden='{{!order.bonusMoney}}'>
+        <view class='minus-item'>
+          <view class="bg-red-packet red-packet"></view>使用红包</view>
+        <view class='"cmoney"'>- ¥ {{order.bonusMoney}}</view>
+      </view>
+      <view class='ball-left'></view>
+      <view class='ball-right'></view>
+    </view>
+    <view class='total-settle mb-20'>
+      <text class='all-count'>已优惠¥{{order.allMinus+order.bonusMoney}}</text>小计
+      <text class='minus-price fwb'>¥{{order.allPrice-order.bonusMoney}}</text>
+    </view>
+    <!-- 配送信息 -->
+    <view class='bgcw mb-20 c999'>
+      <view class='frt p4-20'>
+        <view class='c999 mr-20'>期望时间</view>
+        <view class='c000'>{{show.utcToBJ(order.bestTime)}}</view>
+      </view>
+      <view class='frt p4-20'>
+        <view class='c999 mr-20 lh-48'>配送地址</view>
+        <view class='c000'>
+          <view class='lh-48'>{{order.userName}} {{order.phoneNum}}</view>
+          <view class='lh-48'>{{order.region}} {{order.detail}}</view>
+        </view>
+      </view>
+      <view class='frt p4-20'>
+        <view class='c999 mr-20'>配送服务</view>
+        <view class='c000'>{{order.sendType==1 ? "店家配送":"到店自取"}}</view>
+      </view>
+    </view>
+    <!-- 订单信息 -->
+    <view class='bgcw mb-20 c999'>
+      <view class='frt p4-20'>
+        <view class='c999 mr-20'>订单号码</view>
+        <view class='c000'>{{order.orderid}}</view>
+      </view>
+      <view class='frt p4-20'>
+        <view class='c999 mr-20'>订单时间</view>
+        <view class='c000'>{{show.utcToBJ(order.payTime)}}</view>
+      </view>
+      <view class='frt p4-20'>
+        <view class='c999 mr-20'>支付方式</view>
+        <view class='c000'>{{order.payType==1 ? "微信支付":"线下支付"}}</view>
+      </view>
+    </view>
+  </view>
+</view>

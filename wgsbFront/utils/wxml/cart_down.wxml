@@ -1,0 +1,15 @@
+<view class="cart-content-wrap">
+  <view class="content-left">
+    <view class="logo-wrapper">
+      <view class='cart-icon {{totalPay > 0 ? "bg-cart-white":"bg-cart-blank"}}'></view>
+    </view>
+    <view class="price {{totalPay > 0 ? 'highlight':''}}">￥{{totalPay}}
+      <text class='diff-pay' hidden='{{totalPay >= lowestPay}}'>还差{{lowestPay-totalPay}}元</text>
+    </view>
+  </view>
+  <view class="content-right">
+    <view catchtap="{{totalPay >= lowestPay ? 'goPay':'payTip'}}" class="pay {{totalPay >= lowestPay ? 'payClass':''}}">去结算({{show.totalNum(cart)}})
+    </view>
+  </view>
+</view>
+<view class="placehold-h"></view>

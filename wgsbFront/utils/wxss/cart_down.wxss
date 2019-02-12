@@ -1,0 +1,90 @@
+/*底部的购物车*/
+
+.cart-content-wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 50;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  background: #141d27;
+  font-size: 0;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.content-left {
+  flex: 1;
+}
+
+.logo-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  top: -20rpx;
+  margin: 0 24rpx;
+  padding: 12rpx;
+  width: 112rpx;
+  height: 112rpx;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #141d27;
+}
+
+.cart-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #c8c8c8;
+  background-size: 66%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-cart-white {
+  background-color: #1fa1fc;
+}
+
+.price {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20rpx;
+  line-height: 48rpx;
+  padding-right: 24rpx;
+  box-sizing: border-box;
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.highlight {
+  color: #fff;
+}
+
+.content-right {
+  flex: 0 0 200rpx;
+  width: 200rpx;
+}
+
+.content-right .pay {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 24rpx;
+  font-weight: 700;
+  background: #2b333b;
+}
+
+.pay.payClass {
+  color: #fff;
+  background: #1fa1fc;
+}
+
+.content-right .pay.enough {
+  background: #00b43c;
+  color: #fff;
+}
+
+.diff-pay{
+  font-size: 24rpx;
+  color: rgba(255, 255, 255, 0.6)
+}

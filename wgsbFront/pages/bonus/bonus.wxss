@@ -1,0 +1,18 @@
+@import "/utils/wxss/base64.wxss";
+@import "/utils/wxss/bonus_item.wxss";
+
+page {
+  overflow: hidden;
+}
+
+.content, page {
+  height: 100%;
+  width: 100%;
+  background-color: #f4f8fb;
+  color: #111;
+  font-size: 26rpx;
+}
+
+.content {
+  overflow-y: scroll;
+}

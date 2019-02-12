@@ -1,0 +1,189 @@
+page {
+  overflow: hidden;
+}
+
+.content, page {
+  height: 100%;
+  width: 100%;
+  background-color: #f4f8fb;
+  color: #111;
+  font-size: 26rpx;
+}
+
+.content {
+  overflow-y: scroll;
+}
+
+.order-info {
+  padding: 0 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.shop-info {
+  background-color: #fff;
+  height: 80rpx;
+  margin: 20rpx 0 20rpx;
+  padding: 0 20rpx;
+  color: #999;
+}
+
+.shop-logo {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.goods-discount {
+  color: #ff5046;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  height: 32rpx;
+  padding-left: 20rpx;
+  font-weight: bold;
+}
+
+.goods-image, .goods-image-wrap {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.goods-image-wrap {
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.order-item {
+  padding: 20rpx;
+  position: relative;
+  margin-bottom: 10rpx;
+  background-color: #fff;
+}
+
+.goods-name {
+  margin-top: -20rpx;
+}
+
+.goods-price {
+  color: #ccc;
+}
+
+.goods-total {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+
+.other-cost {
+  background-color: #fff;
+  border-bottom: 2rpx #ccc dashed;
+  position: relative;
+}
+
+.cost-item {
+  padding: 20rpx;
+  height: 40rpx;
+}
+
+.cost-item-15 {
+  padding: 12rpx 20rpx;
+  height: 40rpx;
+}
+
+.ball-left, .ball-right {
+  position: absolute;
+  width: 32rpx;
+  height: 32rpx;
+  bottom: -16rpx;
+  z-index: 10;
+  background-color: #f4f8fb;
+  border-radius: 50%;
+}
+
+.ball-left {
+  left: -16rpx;
+}
+
+.ball-right {
+  right: -16rpx;
+}
+
+.other-favourable {
+  background-color: #fff;
+  color: #ccc;
+  border-bottom: 2rpx #ccc dashed;
+  position: relative;
+}
+
+.minus-item {
+  position: relative;
+  padding: 0 0 0 60rpx;
+}
+
+.minus-txt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #6c5cb4;
+  border-radius: 4rpx;
+  padding: 0 6rpx 4rpx;
+  color: #fff;
+}
+
+.bgc-43 {
+  background-color: #fb4343;
+}
+
+.bgc-63 {
+  background-color: #ff635c;
+}
+
+.minus-price {
+  color: #ff5046;
+}
+
+.no-select {
+  margin-right: 40rpx;
+}
+
+.cost-red-packet {
+  padding: 30rpx 20rpx;
+  background-color: #fff;
+  position: relative;
+}
+
+.red-packet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40rpx;
+  height: 40rpx;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.total-settle {
+  padding: 20rpx;
+  background-color: #fff;
+  text-align: right;
+  margin-bottom: 20rpx;
+}
+
+.all-count {
+  margin: 0 20rpx 0 0;
+  color: #ccc;
+  font-size: 24rpx;
+}
+
+.select-info {
+  padding: 0 20rpx;
+  background-color: #fff;
+}
+
+.select-item {
+  padding: 30rpx 0;
+  border-bottom: 2rpx #eee solid;
+  position: relative;
+}

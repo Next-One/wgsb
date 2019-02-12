@@ -1,0 +1,31 @@
+.vertical {
+  animation: vertical-animation 1s ease-in 0s 1 forwards;
+}
+
+.hor {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: red;
+  animation: hor-animation 1s linear 0s 1 forwards;
+}
+
+@keyframes hor-animation {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-208rpx);
+  }
+}
+
+@keyframes vertical-animation {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(600rpx);
+  }
+}

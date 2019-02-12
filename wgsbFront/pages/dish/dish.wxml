@@ -1,0 +1,2 @@
+<view class="">{{curValue}}</view>
+<button class='add100' bindtap='add100'>add100</button>

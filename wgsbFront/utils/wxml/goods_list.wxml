@@ -1,0 +1,30 @@
+<view class='goods-list'>
+    <block wx:for="{{goods}}" wx:key="id" wx:for-index="idx">
+        <view class='goods-item frfs' catchtap='toDishPage' data-id='{{item.id}}'>
+            <view class='image-wrap-view goods-img-wrap'>
+                <image class='goods-img' mode='aspectFill' src='{{item.imgUrl}}'></image>
+            </view>
+            <view class='goods-content'>
+                <view class='goods-name'>{{item.name}}</view>
+                <view class='goods-brief'>{{item.brief}}</view>
+                <view class='goods-sale'>
+                    <text decode='true'>出售{{item.sum}}&nbsp;&nbsp;&nbsp;&nbsp;赞{{item.praise}}</text>
+                </view>
+                <view class='goods-price'>¥{{show.show(item,'price')}}
+                    <text class='source-price'>{{show.show(item,'source-price')}}</text>
+                </view>
+                <view wx:if="{{show.show(item,'discount')}}" class='goods-discount'>
+                    <view class='bg-discount'></view>
+                    {{item.discount*10}}折
+                </view>
+            </view>
+            <view class="goods-num-ctrl" >
+                <view class='minus-cart bg-minus-btn {{show.quantity(item.id,cart) ? "tsx-0":""}}' data-id='{{item.id}}' catchtap='minusCart' >
+                </view>
+                <view class='goods-num-tip fs32 {{show.quantity(item.id,cart) ? "tsx-0":""}}' >{{show.quantity(item.id,cart)}}</view>
+                <view class='add-cart bg-plus-btn' data-id='{{item.id}}' catchtap='addCart'>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

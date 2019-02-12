@@ -1,0 +1,117 @@
+.goods-list {
+  padding: 0 10rpx;
+  overflow: hidden;
+}
+
+.goods-item {
+  padding: 10rpx 0;
+  height: 260rpx;
+  position: relative;
+  border-bottom: 10rpx solid #f4f8fb;
+}
+
+.goods-img-wrap {
+  margin-right: 20rpx;
+}
+
+.goods-img,.goods-img-wrap {
+  width: 240rpx;
+  height: 240rpx;
+}
+
+.goods-name {
+  color: #000;
+  font-size: 32rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.goods-brief, .goods-sale {
+  color: #999;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  height: 40rpx;
+}
+
+.goods-price{
+  line-height: 60rpx;
+  height: 60rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #ff5046;
+}
+
+.source-price{
+  color: #999;
+  font-size: 26rpx;
+  font-weight: normal;
+  text-decoration:line-through;
+}
+
+.bg-discount{
+  width: 28rpx;
+  height: 28rpx;
+  background-size: cover;
+  margin-right: 10rpx;
+  position: absolute;
+  top: 2rpx;
+  left: 4rpx;
+}
+
+.goods-discount{
+  color: #ff5046;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  height: 32rpx;
+  padding-left: 40rpx;
+  position: relative;
+  font-weight: bold
+}
+
+
+.goods-num-ctrl{
+    position: absolute;
+    bottom: 40rpx;
+    right: 20rpx;
+    height: 60rpx;
+    width: 200rpx;
+
+}
+
+.goods-num-tip,
+.add-cart,
+.minus-cart{
+    position: absolute;
+    top: 0;
+    width: 60rpx;
+    height: 60rpx;
+    background-size: cover;
+}
+
+.goods-num-tip{
+    left: 70rpx;
+    text-align: center;
+    line-height: 60rpx;
+    transform: translateX(70rpx);
+    transition: all 0.25s ease-in 0s;
+    z-index: 4;
+    opacity: 0;
+}
+
+.minus-cart{
+    left: 0;
+    transform: translateX(130rpx);
+    transition: all 0.5s ease-in 0s;
+    z-index: 3;
+    opacity: 0;
+}
+
+.tsx-0{
+    transform: translateX(0) ;
+    opacity: 1 ;
+}
+
+.add-cart{
+    right: 0;
+    z-index: 5;
+}

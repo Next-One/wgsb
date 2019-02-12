@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<wxs src="./../lib/show.wxs" module="show"/>
+<view class="container">
+    <swiper class='s1-slider' indicator-dots="{{s1.indicatorDots}}" autoplay="{{s1.autoplay}}"
+            circular="{{s1.circular}}" vertical="{{s1.vertical}}" interval="{{s1.interval}}" duration="{{s1.duration}}"
+            previous-margin="{{s1.previousMargin}}rpx" next-margin="{{s1.nextMargin}}rpx">
+        <swiper-item wx:for="{{imgUrls}}" wx:key="index">
+            <image src='{{item}}' class='slider-img'></image>
+        </swiper-item>
+    </swiper>
+
+    <view class='line-12'></view>
+    <view class='nav-list frcsa'>
+        <view class='fcc' bindtap='toFirutDish'>
+            <view class='nav-item-color line-bg-6'>
+                <view class='nav-item-img bg-firut-dish'></view>
+            </view>
+            <text class='nav-item-desc'>水果拼盘</text>
+        </view>
+        <view class='fcc' bindtap='toDynamic'>
+            <view class='nav-item-color line-bg-2'>
+                <view class='nav-item-img bg-soup'></view>
+            </view>
+            <text class='nav-item-desc'>美味汤煲</text>
+        </view>
+        <view class='fcc'>
+            <view class='nav-item-color line-bg-3'>
+                <view class='nav-item-img bg-gruel'></view>
+            </view>
+            <text class='nav-item-desc'>营养米粥</text>
+        </view>
+        <view class='fcc'>
+            <view class='nav-item-color line-bg-1'>
+                <view class='nav-item-img bg-set-meal'></view>
+            </view>
+            <text class='nav-item-desc'>食疗套餐</text>
+        </view>
+    </view>
+    <view class='line-18'></view>
+    <view class='discount-info'>
+        <view class='naba bg-naba'></view>
+        <swiper class='s2-slider' indicator-dots="{{s2.indicatorDots}}" autoplay="{{s2.autoplay}}"
+                circular="{{s2.circular}}" vertical="{{s2.vertical}}" interval="{{s2.interval}}"
+                duration="{{s2.duration}}" previous-margin="{{s2.previousMargin}}rpx"
+                next-margin="{{s2.nextMargin}}rpx">
+            <swiper-item wx:for="{{discountInfos}}" wx:key="index">
+                <view class="s2-slider-item">{{item}}</view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class='line-18'></view>
+    <view class='time-area frc'>
+        <view class='rect fcc'>
+            <view class='text-area'>
+                <view class='tip-title fs32'>热销水果</view>
+                <view class='tip-desc ctheme'>果园现摘</view>
+            </view>
+            <view class='image-wrap-view image-area'>
+                <image class='image-area' src='/img/firut/f1.png'></image>
+            </view>
+        </view>
+        <view class='square fcc'>
+            <view class='square-1 frcsb'>
+                <view class='text-area'>
+                    <view class='tip-title fs32'>优惠活动</view>
+                    <view class='tip-desc ctheme'>限时抢购</view>
+                </view>
+                <view class='image-wrap-view image-area'>
+                    <image class='image-area' src='/img/firut/f2.png'></image>
+                </view>
+            </view>
+            <view class='square-2 frcsb'>
+                <view class='text-area'>
+                    <view class='tip-title fs32'>进口蔬菜</view>
+                    <view class='tip-desc ctheme'>营养新鲜</view>
+                </view>
+                <view class='image-wrap-view image-area'>
+                    <image class='image-area' src='/img/firut/f3.png'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='line-18'></view>
+    <include src="/utils/wxml/goods_list.wxml"/>
+    <block wx:if="{{cart.length}}">
+        <include src="/utils/wxml/cart_down.wxml"/>
+    </block>
+    <view class="small-ball" hidden="{{ball.hidden}}"  style="left: {{ball.x}}px; top: {{ball.y}}px">
+    </view>
+</view>

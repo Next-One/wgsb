@@ -1,0 +1,43 @@
+<wxs src="./../lib/show.wxs" module="show" />
+<view class='content'>
+  <view class='order-nav frcsa c999 bgcw ftl'>
+    <view class='nav-item {{currentTab == 0 ? "ctheme":""}}' data-tab='0' catchtap='switchTab'>全部订单</view>
+    <view class='nav-item {{currentTab == 1 ? "ctheme":""}}' data-tab='1' catchtap='switchTab'>待评价</view>
+    <view class='nav-item {{currentTab == 2 ? "ctheme":""}}' data-tab='2' catchtap='switchTab'>退款</view>
+  </view>
+  <swiper class="tab-box" current="{{currentTab}}" duration="300" bindchange="switchTab">
+    <swiper-item class="tab-content">
+      <view wx:if='{{order.length}}'>
+        <view class='mb-20 frt bgcw' wx:for='{{order}}' wx:key="orderid">
+          <include src="/utils/wxml/order_item.wxml" />
+        </view>
+      </view>
+      <view wx:else class='fccc cccc'>
+        <view class='bg-empty-order empty-order'></view>
+        <view>没有任何订单哦~</view>
+      </view>
+    </swiper-item>
+    <swiper-item class="tab-content">
+      <view wx:if='{{assess.length}}'>
+        <view class='mb-20 frt bgcw' wx:for='{{assess}}' wx:key="orderid">
+          <include src="/utils/wxml/order_item.wxml" />
+        </view>
+      </view>
+      <view wx:else class='fccc cccc'>
+        <view class='bg-empty-order empty-order'></view>
+        <view>没有待评价订单哦~</view>
+      </view>
+    </swiper-item>
+    <swiper-item class="tab-content">
+      <view wx:if='{{backPay.length}}'>
+        <view class='mb-20 frt bgcw' wx:for='{{backPay}}' wx:key="orderid">
+          <include src="/utils/wxml/order_item.wxml" />
+        </view>
+      </view>
+      <view wx:else class='fccc cccc'>
+        <view class='bg-empty-order empty-order'></view>
+        <view>没有退款订单哦~</view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

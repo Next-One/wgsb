@@ -1,0 +1,13 @@
+<wxs src="./../lib/show.wxs" module="show" />
+<view class='content'>
+  <block wx:if="{{!cart.length}}">
+    <view class='fcc'>
+      <view class='bg-cart'></view>
+      <view class='empty-tip'>购物车空空如也</view>
+    </view>
+  </block>
+  <block wx:else>
+    <include src="/utils/wxml/cart_list.wxml" />
+  </block>
+   <include src="/utils/wxml/cart_down.wxml" />
+</view>

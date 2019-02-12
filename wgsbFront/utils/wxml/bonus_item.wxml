@@ -1,0 +1,21 @@
+<view wx:if='{{bonus.length != 0}}' class='p4-20'>
+  <view class='bonus-item frcsb fs24' wx:for="{{bonus}}" wx:key="id" catchtap='selectedThisBonus' data-idx='{{index}}'>
+    <view>
+      <view class='bonus-name cmoney fs32'>通用红包</view>
+      <view>有效期至 {{show.show(item.useTime,'date')}}</view>
+    </view>
+    <view>
+      <view class='bonus-name cmoney'>¥
+        <text class='fs40'>{{item.money}}</text>
+      </view>
+      <view>满{{item.lowest}}可用</view>
+    </view>
+    <view class='bg-selected-btn2 selected-btn2' wx:if="{{item.id === bonusid.id}}"></view>
+  </view>
+</view>
+<view wx:else class='fccc'>
+  <view class='bg-empty-bonus empty-bonus'></view>
+  <view class='cccc'>您还没有任何可用红包 |
+    <text class='ctheme'>查看失效卷</text>
+  </view>
+</view>

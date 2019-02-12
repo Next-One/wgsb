@@ -1,0 +1,28 @@
+<view class='cart-item frc' wx:for="{{cart}}" wx:key="id">
+    <icon type="success" size="26" color='{{item.selected ? "#1fa1fc" : "#b2b2b2"}}' catchtap='select'
+          data-idx='{{index}}'/>
+    <!-- <view class='select-btn {{item.selected ? "bg-selected-btn" : "bg-noselect-btn"}}' bindtap='select' data-idx='{{index}}'></view> -->
+    <view class='cart-img-wrap image-wrap-view'>
+        <image class='cart-img' mode='aspectFill' src='{{show.f(goods,item.dishid,"imgUrl")}}'></image>
+    </view>
+    <view class='cart-content'>
+        <view class='cart-name'>{{show.f(goods,item.dishid,'name')}}</view>
+        <block wx:if="{{show.f(goods,item.dishid,'isDiscount')}}">
+            <view class='start-price'>
+                <text decode='true'>¥&nbsp;&nbsp;&nbsp;{{show.f(goods,item.dishid,'price')}}</text>
+            </view>
+            <view class='start-price'>
+                <text decode='true'>×&nbsp;&nbsp;{{show.f(goods,item.dishid,'discount')}}</text>
+            </view>
+            <!-- <view class='line'></view> -->
+        </block>
+        <view class='end-price'>¥ {{show.f(goods,item.dishid,'total')}}</view>
+    </view>
+    <view class='cart-quantity frc'>
+        <view class='minus' bindtap='minus' data-idx='{{index}}'>
+            <view class='minus-top'></view>
+        </view>
+        <view class='quantity tc'>{{item.quantity}}</view>
+        <view class='plus tc' bindtap='plus' data-idx='{{index}}'>+</view>
+    </view>
+</view>

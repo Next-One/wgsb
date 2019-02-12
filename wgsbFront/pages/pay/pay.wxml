@@ -1,0 +1,199 @@
+<wxs src="./../lib/show.wxs" module="show"/>
+<view class='content'>
+    <view class='order-info'>
+        <view class='address'>
+            <block wx:if="{{address != null}}">
+                <navigator url="/pages/address/address" hover-class="hover">
+                    <view class='frc address-wrap'>
+                        <view class='address-location bg-address-logo'></view>
+                        <view class='address-detail'>
+                            <view class='user-name'>{{address.userName}}
+                                <text class='phone-num'>{{address.phoneNum}}</text>
+                            </view>
+                            <view class='address-info'>{{address.region}} {{address.detail}}</view>
+                        </view>
+                        <view class='right-arr-2 bg-right-arr'></view>
+                        <view class='dotted-line bg-dotted'></view>
+                    </view>
+                </navigator>
+            </block>
+            <block wx:else>
+                <view class='address-btn frc mb-4' catchtap='manual' hover-class='hover'>
+                    <view class='address-logo bg-address-add'></view>
+                    <view>手动添加收货地址</view>
+                    <view class='right-arr bg-right-arr'></view>
+                </view>
+                <view class='address-btn frc' bindtap='getWXAddress' hover-class='hover'>
+                    <view class='address-logo bg-address-wx'></view>
+                    <view>一键获取微信地址</view>
+                    <view class='right-arr bg-right-arr'></view>
+                </view>
+            </block>
+        </view>
+        <view class='shop-info frcsb'>
+            <view class='shop-view frc'>
+                <view class='shop-logo bg-shop-logo'></view>
+                <view class='shop-name'>五谷食疗(合肥安医大一附院店)</view>
+            </view>
+            <view>自行配送</view>
+        </view>
+        <view wx:for="{{order}}" wx:key="id" class='frc order-item'>
+            <view class='goods-image-wrap'>
+                <image class='goods-image' src='{{item.imgUrl}}' mode='aspectFill'></image>
+            </view>
+            <view class='goods-info'>
+                <view class='goods-name'>{{item.name}}
+                    <text wx:if="{{show.show(item,'discount')}}" class='goods-discount'>{{item.discount*10}}折</text>
+                </view>
+                <view class='goods-price'>×{{item.quantity}}</view>
+                <view class='goods-total'>¥{{item.price * item.discount * item.quantity}}</view>
+            </view>
+        </view>
+        <view class='other-cost'>
+            <view class='frcsb cost-item'>
+                <view>包装费</view>
+                <view>¥{{orderInfo.packageFee}}</view>
+            </view>
+            <view class='frcsb cost-item'>
+                <view>配送费</view>
+                <view>¥{{orderInfo.sendFee}}</view>
+            </view>
+            <view class='ball-left'></view>
+            <view class='ball-right'></view>
+        </view>
+        <view class='other-favourable'>
+            <view class='frcsb cost-item-15' hidden='{{!orderInfo.minusSendFee}}'>
+                <view class='minus-item'>
+                    <view class="minus-txt">减</view>
+                    减配送费
+                </view>
+                <view class='minus-price'>- ¥ {{orderInfo.minusSendFee}}</view>
+            </view>
+            <view class='frcsb cost-item-15' hidden='{{!orderInfo.fullMinus}}'>
+                <view class='minus-item'>
+                    <view class="minus-txt bgc-63">减</view>
+                    满减优惠
+                </view>
+                <view class='minus-price'>- ¥ {{orderInfo.fullMinus}}</view>
+            </view>
+            <view class='frcsb cost-item-15' hidden='{{!orderInfo.redPackage}}'>
+                <view class='minus-item'>
+                    <view class="minus-txt bgc-43">返</view>
+                    满返红包(下次可用)
+                </view>
+                <view class='minus-price'>¥ {{orderInfo.redPackage}}</view>
+            </view>
+            <view class='frcsb cost-red-packet' catchtap='selectBonus' hover-class='hover'>
+                <view class='minus-item'>
+                    <view class="bg-red-packet red-packet"></view>
+                    可用红包
+                </view>
+                <view class='frc'>
+                    <view class='{{bonusid.id ? "cmoney":"cccc"}}'>{{bonusid.id ? "- ¥ "+bonusid.money : "未选择"}}</view>
+                    <view class='bg-right-arr right-arr-24 ml-20'></view>
+                </view>
+            </view>
+            <view class='ball-left'></view>
+            <view class='ball-right'></view>
+        </view>
+        <view class='total-settle'>
+            <text class='all-count'>已优惠¥{{orderInfo.allMinus+bonusid.money}}</text>
+            小计
+            <text class='minus-price fwb'>¥{{orderInfo.allPrice-bonusid.money}}</text>
+        </view>
+        <view class='select-info'>
+            <view class='select-item frcsb' catchtap='changeHiddenTime' hover-class='hover'>
+                <view>送货时间</view>
+                <view class='frc'>
+                    <view class='cccc'>{{timeIndex == 0 ? "立即送出 "+times[0]:"预计到达 "+times[timeIndex]}}</view>
+                    <view class='bg-right-arr right-arr-24 ml-20'></view>
+                </view>
+            </view>
+            <view class='select-item frcsb' hover-class='hover'>
+                <view>支付方式</view>
+                <view class='frc'>
+                    <view class='cccc'>在线支付</view>
+                    <view class='bg-right-arr right-arr-24 ml-20'></view>
+                </view>
+            </view>
+            <view class='select-item frcsb' catchtap='changeHiddenComment' hover-class='hover'>
+                <view>备注</view>
+                <view class='frc'>
+                    <view class='cccc one-row'>{{orderDetail.comment ? orderDetail.comment:"说明您的口味"}}</view>
+                    <view class='bg-right-arr right-arr-24 ml-20'></view>
+                </view>
+            </view>
+            <view class='select-item frcsb' catchtap='changeHiddenTableware' hover-class='hover'>
+                <view>餐具数量</view>
+                <view class='frc'>
+                    <view class='cccc'>{{orderDetail.tableware}} 份</view>
+                    <view class='bg-right-arr right-arr-24 ml-20'></view>
+                </view>
+            </view>
+        </view>
+        <view class='placehold-h'></view>
+        <view class='wx-pay-wrap fcc-one' catchtap='wxPay' hover-class='hover'>
+            <view class='wx-pay'>
+                微信支付
+                <text class='fwb all-pay'>¥{{orderInfo.allPrice-bonusid.money}}</text>
+                <text class='all-discount'>已优惠¥{{orderInfo.allMinus + bonusid.money}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 红包选择页面 -->
+<view class='mask-bg ptlwh {{!hidden.bonus ? "":"slider-right"}}}}' catchtap='hidden' bindtouchstart="handletouchtart"
+      bindtouchmove="handletouchmove">
+    <view class='modal-content'>
+        <view class='modal-head fcc-one'>我的红包</view>
+        <view class='modal-body'>
+            <include src="/utils/wxml/bonus_item.wxml"/>
+        </view>
+        <view class='modal-foot'>
+            <view class='no-used-bonus' catchtap='noUsedBonus' hover-class='hover'>不使用红包</view>
+            <view class='used-bonus cmoney' catchtap='usedBonus' hover-class='hover'>使用红包</view>
+        </view>
+    </view>
+</view>
+<!-- 送餐时间选择 -->
+<view class='mask-bg ptlwh fcc-one {{!hidden.time ? "":"slider-right"}}' catchtap='hidden'
+      bindtouchstart="handletouchtart" bindtouchmove="handletouchmove">
+    <view class='time-select-wrap' catchtap='emptyCatch'>
+        <view class='mb-20 fs32'>送餐时间选择</view>
+        <view class='time-list'>
+            <view class='time-item {{index==timeIndex?"time-select-bg":""}}' wx:for="{{times}}"
+                  catchtap='selectTimeItem' data-idx='{{index}}' wx:key="*this">{{index == 0 ? "立即送出 "+item:item}}
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 餐具数量选择 -->
+<view class='fadeInRight mask-bg ptlwh fcc-one {{!hidden.tableware ? "":"slider-right"}}}}' catchtap='hidden'
+      bindtouchstart="handletouchtart" bindtouchmove="handletouchmove">
+    <view class='time-select-wrap' catchtap='emptyCatch'>
+        <view class='mb-20 fs32'>餐具数量选择</view>
+        <view class='time-list'>
+            <view class='time-item {{index+1==orderDetail.tableware ?"time-select-bg":""}}'
+                  wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}" catchtap='selectTablewareItem' data-idx='{{item}}' wx:key="*this">
+                {{item}}
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 留言备注页面 -->
+<view class='fadeInRight mask-bg ptlwh fcc {{!hidden.comment ? "":"slider-right"}}}}' catchtap='hidden'
+      bindtouchstart="handletouchtart" bindtouchmove="handletouchmove">
+    <view class='comment-wrap cfff' catchtap='emptyCatch'>
+        <view class='p4-20 fs32 mb-20'>添加备注</view>
+        <form bindsubmit="commentSubmit">
+            <textarea placeholder="例如：不吃辣 不吃蒜" name="commentArea" maxlength='50' class='comment-area p4-20'
+                      placeholder-style="color:#fff;"/>
+            <view class='mt-40'>
+                <button form-type="submit" class='submit-btn' hover-class='time-select-bg'>完 成</button>
+            </view>
+        </form>
+    </view>
+</view>
+<!-- 新增地址页面 -->
+<include src="/utils/wxml/address_edit.wxml"/>

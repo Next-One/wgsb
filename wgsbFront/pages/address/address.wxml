@@ -1,0 +1,38 @@
+<wxs src="./../lib/show.wxs" module="show" />
+<view class='address'>
+  <view class='address-empty fcc-one' wx:if='{{address.length == 0}}'>
+    <view class='bg-empty-address'></view>
+  </view>
+  <view class='address-list' wx:else>
+    <view class='address-item' wx:for="{{address}}" wx:for-item="i" wx:key="id">
+      <view class='address-info' catchtap='select'  data-id='{{i.id}}' data-idx='{{index}}'>
+        <view class='user-name'>{{i.userName}}
+          <text class='phone-num'>{{i.phoneNum}}</text>
+        </view>
+        <view class='address-detail'>{{i.region}} {{i.detail}}</view>
+        <view class='address-selected {{addressid==i.id ? "bg-selected-tip":""}}'></view>
+      </view>
+      <view class='address-edit frcsb'>
+        <view class='frc {{addressid==i.id ? "address-default":""}}'>
+          <icon type="success" size="16" color='{{addressid==i.id ? "#d81e06" : "#9c9c9c"}}' catchtap='select' data-id='{{i.id}}' data-idx='{{index}}' class='mr-16' /> {{addressid==i.id ? "已设为默认":"设为默认"}}
+        </view>
+        <view class='edit-btn-group frc'>
+          <view class='mr-16 bg-edit-btn edit-btn' data-idx='{{index}}' catchtap='editAddress'>编辑</view>
+          <view class='bg-delete-btn edit-btn' data-idx='{{index}}'  catchtap='deleteAddress'>删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='placehold-h'></view>
+  <view class='address-btn-group frcsa'>
+    <view class='address-btn frc' bindtap='manual'>
+      <view class='address-logo bg-address-add'></view>
+      <view>手动添加</view>
+    </view>
+    <view class='address-btn wx-color frc' bindtap='getWXAddress'>
+      <view class='address-logo bg-address-wx'></view>
+      <view>微信添加</view>
+    </view>
+  </view>
+  <include src="/utils/wxml/address_edit.wxml" />
+</view>

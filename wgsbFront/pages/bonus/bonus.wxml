@@ -1,0 +1,4 @@
+<wxs src="./../lib/show.wxs" module="show" />
+<view class='content'>
+  <include src="/utils/wxml/bonus_item.wxml" />
+</view>

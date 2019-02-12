@@ -1,0 +1,21 @@
+<view class='shop-logo bg-shop-logo'></view>
+<view class='order-info'>
+    <navigator url="/pages/orderDetail/orderDetail?orderid={{item.orderid}}" hover-class="hover">
+        <view class='order-top frcsb mb-20'>
+            <view class='fwb fs30'>五谷食疗</view>
+            <view class='frc'>
+                <view class='c999 mr-20'>{{show.orderStatus(item.orderStatus)}}</view>
+                <view class='bg-right-arr right-arr-24 mr-20'></view>
+            </view>
+        </view>
+    </navigator>
+    <view class='frcsb c999 lh-36' wx:for='{{item.orderItem}}' wx:for-index="idx" wx:for-item="dish" wx:key="dishid">
+        <view>{{dish.name}}</view>
+        <view class='mr-20'>× {{dish.quantity}}</view>
+    </view>
+    <view class='tr p4-20'>
+        <view>共{{show.orderQuantity(item.orderItem)}}件商品，实付
+            <text class='ctheme'>¥{{item.allPrice}}</text>
+        </view>
+    </view>
+</view>

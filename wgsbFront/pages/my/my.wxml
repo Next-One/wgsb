@@ -1,0 +1,89 @@
+<!--pages/my/my.wxml-->
+<wxs src="./../lib/show.wxs" module="show"/>
+<view class='content'>
+    <view class="user-info frc">
+        <view class="user-avatar-wrap">
+            <open-data type="userAvatarUrl"></open-data>
+            <view class="icon-avatar bg-user-level"></view>
+        </view>
+        <view class='ml-20'>
+            <view class="user-name bg-username-tip">
+                <open-data type="userNickName"></open-data>
+            </view>
+            <view class="user-time bg-join-time">
+                {{show.show(userInfo.time,'date')}}
+            </view>
+        </view>
+    </view>
+    <view class='order-manager'>
+        <navigator url="/pages/order/order?tab=0" hover-class="hover">
+            <view class='my-order frcsb'>
+                <view class='bg-order-all logo-item'>我的订单</view>
+                <view class='frc'>
+                    <view class='see-all'>查看全部</view>
+                    <view class='bg-right-arr'></view>
+                </view>
+            </view>
+        </navigator>
+
+        <view class='order-kind frcsa'>
+            <navigator url="/pages/order/order?tab=0" hover-class="hover">
+                <view class='order-item fcc'>
+                    <view class='bg-make-order order-logo'></view>
+                    <view>接单/制作</view>
+                </view>
+            </navigator>
+            <navigator url="/pages/order/order?tab=1" hover-class="hover">
+                <view class='order-item fcc'>
+                    <view class='bg-send-order order-logo'></view>
+                    <view>配送中</view>
+                </view>
+            </navigator>
+            <navigator url="/pages/order/order?tab=2" hover-class="hover">
+                <view class='order-item fcc'>
+                    <view class='bg-assess-order order-logo'></view>
+                    <view>待评价</view>
+                </view>
+            </navigator>
+            <navigator url="/pages/order/order?tab=3" hover-class="hover">
+                <view class='order-item fcc'>
+                    <view class='bg-success-order order-logo'></view>
+                    <view>已完成</view>
+                </view>
+            </navigator>
+            <navigator url="/pages/order/order?tab=4" hover-class="hover">
+                <view class='order-item fcc'>
+                    <view class='bg-return-order order-logo'></view>
+                    <view>退款/售后</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <navigator url="/pages/bonus/bonus" hover-class="hover">
+        <view class='my-item frcsb' >
+            <view class='bg-coupon logo-item'>优惠卷/红包</view>
+            <view class='bg-right-arr'></view>
+        </view>
+    </navigator>
+    <navigator url="/pages/invite/invite" hover-class="hover">
+        <view class='my-item frcsb'>
+            <view class='bg-invite-gift logo-item'>邀请有奖</view>
+            <view class='bg-right-arr'></view>
+        </view>
+    </navigator>
+    <navigator url="/pages/address/address" hover-class="hover">
+        <view class='my-item frcsb'>
+            <view class='bg-address-logo logo-item'>收获地址</view>
+            <view class='bg-right-arr'></view>
+        </view>
+    </navigator>
+    <navigator url="/pages/feedback/feedback" hover-class="hover">
+        <view class='my-item frcsb' >
+            <view class='bg-feedback logo-item'>问题反馈</view>
+            <view class='bg-right-arr'></view>
+        </view>
+    </navigator>
+
+
+
+</view>

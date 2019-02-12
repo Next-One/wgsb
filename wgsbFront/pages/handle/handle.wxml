@@ -1,0 +1,8 @@
+<wxs src="./../lib/show.wxs" module="show" />
+<view class="wrapper">
+  <view class="circle">
+    <view class="bg-scale"></view>
+    <view class="time-num">{{show.min5(timeNum)}}</view>
+    <view class="time-unit">商家接单中...</view>
+  </view>
+</view>
